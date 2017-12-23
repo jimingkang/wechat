@@ -30,34 +30,54 @@ public class NewsBuilder extends AbstractBuilder {
   public List<Event> getEvents(){
     List<Event> list=null;
     try {
-      FileReader fi = new FileReader("/home/jka07@int.hrs.com/hrs_doc/weixin-java-mp-demo-springboot-master/src/main/resources/"+"shanghai_party.txt");
+      FileReader fi = new FileReader("/home/jka07@int.hrs.com/hrs_doc/weixin-java-mp-demo-springboot-master/src/main/python/"+"shanghai.txt");
       BufferedReader bf = new BufferedReader(fi);
       String str=null;
       int cnt=0;
       Event e= new Event();;
        list=new ArrayList<Event>();
+
+   /*   file.write("活动名称"+":"+event_info['活动名称'])
+      file.write('\n')
+      file.write("时间"+":"+event_info['时间'])
+      file.write('\n')
+      file.write("地点"+":"+event_info['地点'])
+      file.write('\n')
+      file.write("geo_latitude"+":"+event_info['geo_latitude'])
+      file.write('\n')
+      file.write("geo_longitude"+":"+event_info['geo_longitude'])
+      file.write('\n')
+      file.write("参加的人"+":"+event_info['参加的人'])
+      file.write('\n')
+      file.write("活动uid"+":"+event_info['活动uid'])
+      file.write('\n')
+      file.write("费用"+":"+ event_info['费用'])
+      file.write('\n')
+      file.write("类型"+":"+ event_info['类型'])
+      file.write('\n')*/
       while((str=bf.readLine())!=null)
       {
         cnt++;
+        if  (cnt==1)
+            e.setUname(str);
+        else if  (cnt==2)
+              e.setUtime(str);
+        else if  (cnt==3)
+          e.setUplace(str);
+        else if  (cnt==4)
+            e.setUlogintude(str.split(":")[1].trim());
+        else if  (cnt==5)
+            e.setUlatitude(str.split(":")[1].trim());
+        else  if(cnt==6)
+          e.setUattendant_cnt(str);
+        else if  (cnt==7)
+          e.setUid(str.split(":")[1].trim());
+        else if  (cnt==8)
+         e.setUprice(str);
+        else if  (cnt==9)
+          e.setUcatgory(str);
 
-      if(cnt==1)
-        e.setUinteres_cnt(str);
-      else if  (cnt==2)
-        e.setUid(str.split(":")[1].trim());
-      else if  (cnt==3)
-        e.setUtime(str);
-      else if  (cnt==4)
-        e.setUlogintude(str.split(":")[1].trim());
-      else if  (cnt==5)
-        e.setUplace(str);
-      else if  (cnt==6)
-        e.setUname(str);
-      else if  (cnt==7)
-        e.setUattendant_cnt(str);
-      else if  (cnt==11)
-        e.setUlatitude(str.split(":")[1].trim());
-
-      else  if(cnt==13) {
+      else  if(cnt==10) {
           cnt=0;
           list.add(e);
           e = new Event();
@@ -73,6 +93,23 @@ public class NewsBuilder extends AbstractBuilder {
     return list;
 
   }
+  public List getEventsNearby(List<Event> events,double longi,double lati)
+  {List<Event> li=new ArrayList<>();
+
+    for(Event e:events)
+    {
+      double elongi=Double.parseDouble(e.getUlogintude());
+      double elati=Double.parseDouble(e.getUlatitude());
+      double radius_radius=(elongi-longi)*(elongi-longi)+(elati-lati)*(elati-lati);
+
+      if(Math.sqrt(radius_radius)<0.01)
+      {
+
+       li.add(e);
+      }
+    }
+    return li;
+  }
 
   public WxMpXmlOutMessage buildEvents( WxMpXmlMessage wxMessage,
                                  WxMpService service) {
@@ -85,7 +122,8 @@ public class NewsBuilder extends AbstractBuilder {
 
     int count=0;
     List<Event> events=getEvents();
-    for(Event e:events)
+    List<Event> nearby=getEventsNearby(events,wxMessage.getLocationX(),wxMessage.getLocationY());
+    for(Event e:nearby)
     {
       if(count++==5)
         break;

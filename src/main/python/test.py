@@ -87,7 +87,8 @@ def spider():
                             Chrome/45.0.2454.99 Safari/537.36'}
 
     for city in destination:
-
+        file_name2 = city +'.txt'
+        file = open(file_name2, 'w')
         for kind in category:
             url1 = 'http://www.douban.com/location/' + city + \
                 '/events/weekend-' + category[kind]
@@ -98,9 +99,9 @@ def spider():
             event = selector.xpath(                 # 每一种分类页面
                 '//*[@id="db-events-list"]/ul/li/div[2]/div/a/@href')
 
-            file_name2 = destination[city] + '_' + kind + '.txt'
 
-            file = open(file_name2, 'w')
+
+
 
 
             for each in event:  # 进入活动的具体页面
@@ -156,17 +157,38 @@ def spider():
                 # 命令行中给出运行信息
                 print('正在记录'.encode('utf-8').decode('utf-8'), destination[city].encode('utf-8').decode('utf-8'), event_info['类型'], event_info['活动uid'], r'的信息'.encode('utf-8').decode('utf-8'))
 
+
+
+
+                file.write("活动名称"+":"+event_info['活动名称'])
+                file.write('\n')
+                file.write("时间"+":"+event_info['时间'])
+                file.write('\n')
+                file.write("地点"+":"+event_info['地点'])
+                file.write('\n')
+                file.write("geo_latitude"+":"+event_info['geo_latitude'])
+                file.write('\n')
+                file.write("geo_longitude"+":"+event_info['geo_longitude'])
+                file.write('\n')
+                file.write("参加的人"+":"+event_info['参加的人'])
+                file.write('\n')
+                file.write("活动uid"+":"+event_info['活动uid'])
+                file.write('\n')
+                file.write("费用"+":"+ event_info['费用'])
+                file.write('\n')
+                file.write("类型"+":"+ event_info['类型'])
+                file.write('\n')
                 #saveEventIinfo(event_info)
-                for key in event_info:
-                    file.write(key)
-                    file.write(': ')
-                    file.write(event_info[key])
-                    file.write('\n')
+                #for key in event_info:
+                #    file.write(key)
+                #    file.write(': ')
+                #    file.write(event_info[key])
+                #    file.write('\n')
                 file.write('\n')
 
                 # 产生一个3至6秒的随机时间间隔
                 time.sleep(random.randint(3, 6))
-            file.close()
+        file.close()
     #a = raw_input('Just for stop\n      ----jiong')
 
 

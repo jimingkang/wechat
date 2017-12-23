@@ -24,6 +24,25 @@ public class Event {
     private  String uname;
     private  String uattendant_cnt;
     private  String ulatitude;
+    private String uprice;
+
+    public String getUprice() {
+        return uprice;
+    }
+
+    public void setUprice(String uprice) {
+        this.uprice = uprice;
+    }
+
+    public String getUcatgory() {
+        return ucatgory;
+    }
+
+    public void setUcatgory(String ucatgory) {
+        this.ucatgory = ucatgory;
+    }
+
+    private String ucatgory;
 
 
     public String getUinteres_cnt() {

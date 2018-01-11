@@ -1,0 +1,19 @@
+package org.ldlood.service;
+
+import org.ldlood.dataobject.ProductCategory;
+
+import java.util.List;
+
+/**
+ * Created by Ldlood on 2017/7/20.
+ */
+public interface CategoryService {
+    ProductCategory findOne(Integer categoryId);
+
+    List<ProductCategory> findAll();
+
+    List<ProductCategory> findByCategoryTypeIn(List<Integer> categoryTypeList);
+
+    ProductCategory save(ProductCategory productCategory);
+
+}

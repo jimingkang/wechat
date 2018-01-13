@@ -1,4 +1,4 @@
-package bean;
+package jimmy.onlyou.bean;
 
 /**
  * @author 高远</n>

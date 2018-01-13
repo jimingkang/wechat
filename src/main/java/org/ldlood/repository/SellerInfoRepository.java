@@ -4,7 +4,6 @@ import org.ldlood.dataobject.SellerInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-
 /**
  * Created by Ldlood on 2017/8/10.
  */

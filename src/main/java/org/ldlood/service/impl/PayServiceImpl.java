@@ -1,5 +1,12 @@
 package org.ldlood.service.impl;
 
+import com.lly835.bestpay.enums.BestPayTypeEnum;
+import com.lly835.bestpay.model.PayRequest;
+import com.lly835.bestpay.model.PayResponse;
+import com.lly835.bestpay.model.RefundRequest;
+import com.lly835.bestpay.model.RefundResponse;
+import com.lly835.bestpay.service.impl.BestPayServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.ldlood.dto.OrderDTO;
 import org.ldlood.enums.ResultEnum;
 import org.ldlood.exception.SellException;
@@ -7,14 +14,8 @@ import org.ldlood.service.OrderService;
 import org.ldlood.service.PayService;
 import org.ldlood.utils.JsonUtil;
 import org.ldlood.utils.MathUtil;
-import com.lly835.bestpay.enums.BestPayTypeEnum;
-import com.lly835.bestpay.model.PayRequest;
-import com.lly835.bestpay.model.PayResponse;
-
-import com.lly835.bestpay.model.RefundRequest;
-import com.lly835.bestpay.model.RefundResponse;
-import com.lly835.bestpay.service.impl.BestPayServiceImpl;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +26,8 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class PayServiceImpl implements PayService {
-
-    private static final String ORDER_NAME = "微信点餐(ldlood店)";
+    private Logger log = LoggerFactory.getLogger(getClass());
+    private static final String ORDER_NAME = "义竹轩(青神店)";
 
     @Autowired
     private BestPayServiceImpl bestPayService;
@@ -37,8 +38,8 @@ public class PayServiceImpl implements PayService {
     @Override
     public PayResponse create(OrderDTO orderDTO) {
         PayRequest payRequest = new PayRequest();
-//        payRequest.setOpenid(orderDTO.getBuyerOpenid());
-        payRequest.setOpenid("oTgZpwZqTlluE5vYtpaL8NEQ09uQ");   //使用测试支付账号openid
+        payRequest.setOpenid(orderDTO.getBuyerOpenid());
+      //  payRequest.setOpenid("oTgZpwZqTlluE5vYtpaL8NEQ09uQ");   //使用测试支付账号openid
         payRequest.setOrderAmount(orderDTO.getOrderAmount().doubleValue());
         payRequest.setOrderId(orderDTO.getOrderId());
         payRequest.setOrderName(ORDER_NAME);

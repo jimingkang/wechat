@@ -1,19 +1,19 @@
-package servlet;
+package jimmy.onlyou.servlet;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import com.google.gson.Gson;
+import jimmy.onlyou.bean.AutoWebParams;
+import jimmy.onlyou.bean.UserInfo;
+import jimmy.onlyou.utils.GlobalParams;
+import jimmy.onlyou.utils.MyHttpUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.gist.bean.AutoWebParams;
-import com.gist.bean.UserInfo;
-import com.gist.utils.GlobalParams;
-import com.gist.utils.MyHttpUtils;
-import com.google.gson.Gson;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * @author 高远</n>
@@ -22,7 +22,8 @@ import com.google.gson.Gson;
  * 博客  http://blog.csdn.net/wgyscsf</n>
  * TODO</n>
  */
-@WebServlet("/WeixinWebServlet")
+@RestController
+@RequestMapping("/WeixinWebServlet")
 public class WeixinWebServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)

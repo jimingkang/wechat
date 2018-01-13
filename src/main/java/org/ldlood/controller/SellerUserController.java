@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,7 +46,7 @@ public class SellerUserController {
 
         if (sellerInfo == null) {
             map.put("msg", ResultEnum.LOGIN_FAIL.getMessage());
-            map.put("url", "/seller/order/list");
+            map.put("url", "/sell/seller/order/list");
             return new ModelAndView("common/error", map);
         }
         String token = UUID.randomUUID().toString();
@@ -57,7 +56,7 @@ public class SellerUserController {
 
         CookieUtil.set(httpServletResponse, CookieConstant.TOKEN, token, CookieConstant.EXPIRE);
 
-        return new ModelAndView("redirect:" + projectUrlConfig.getSell() + "/seller/order/list");
+        return new ModelAndView("redirect:" + projectUrlConfig.getSell() + "/sell/seller/order/list");
     }
 
 

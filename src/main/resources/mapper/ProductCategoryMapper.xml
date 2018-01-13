@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ldlood.dataobject.mapper.ProductCategoryMapper" >
+<mapper namespace="com.org.ldlood.dataobject.mapper.ProductCategoryMapper" >
 
-    <resultMap id="BaseResultMap" type="com.ldlood.dataobject.ProductCategory">
+    <resultMap id="BaseResultMap" type="com.org.ldlood.dataobject.ProductCategory">
         <id column="category_id" property="categoryId" jdbcType="INTEGER" />
         <id column="category_name" property="categoryName" jdbcType="VARCHAR" />
         <id column="category_type" property="categoryType" jdbcType="INTEGER" />

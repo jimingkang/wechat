@@ -1,4 +1,4 @@
-package com.github.binarywang.demo.wechat.handler;
+package org.ldlood.handler;
 
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpService;

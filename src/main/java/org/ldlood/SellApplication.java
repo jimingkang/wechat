@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.ldlood.dataobject.mapper")
+@MapperScan(basePackages = "org.org.ldlood.dataobject.mapper")
 @EnableCaching
 public class SellApplication {
 

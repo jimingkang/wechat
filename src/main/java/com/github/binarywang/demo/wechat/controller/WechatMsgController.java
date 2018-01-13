@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/wechat/portal")
-public class WechatController {
+public class WechatMsgController {
   private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
   @Autowired

@@ -1,4 +1,4 @@
-package com.github.binarywang.demo.wechat.builder;
+package org.ldlood.builder;
 
 import com.github.binarywang.demo.wechat.utils.Event;
 import com.hrs.apac.soap.client.HRSHotelAvailHotelOffer;

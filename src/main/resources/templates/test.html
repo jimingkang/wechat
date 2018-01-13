@@ -1,16 +1,59 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>出错啦！</title>
+    <title>register！</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+</meta>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="'Url:' + ${URL}" />
-    <p th:text="'Error:' + ${error}" />
-    <p th:text="'Message:' + ${message}" />
-    <p th:text="'Exception:' + ${exception}" />
-    <p th:text="'Path:' + ${path}" />
-    <p th:text="'Status:' + ${status}" />
-    <p th:text="'Timestamp:' + ${timestamp}" />
+
+
+<img src="${userinfo.headimgurl}"  />
+
+<table style="margin: 0 auto;">
+
+    <tr>
+        <td>昵称：</td>
+        <td> <p th:text="'' +${userinfo.nickname}" /></td>
+
+    </tr>
+
+    <tr>
+        <td>省：</td>
+        <td> <p th:text="'' +${userinfo.province}" /></td>
+
+    </tr>
+    <tr>
+        <td>市：</td>
+        <td> <p th:text="'' +${userinfo.city}" /></td>
+
+    </tr>
+
+    <tr>
+        <td>头像:</td>
+        <td><img alt="头像" style="width: 50px;height: 50px;" src="${userinfo.headimgurl}" th:attr="src=${userinfo.headimgurl}" /></td>
+    </tr>
+
+</table>
+
+
+<form action="">
+    <table>
+        <tr>
+            <td>姓名:</td> <td><input type="text"/></td>
+        </tr>
+        <tr>
+            <td>出生年月</td>  <td><input type="date"/></td>
+        </tr>
+        <tr>
+            <td>毕业学校</td> <td><input type="text"/></td>
+        </tr>
+        <tr>
+            <td></td> <td></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

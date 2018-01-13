@@ -1,4 +1,4 @@
-package com.github.binarywang.demo.wechat.controller;
+package org.ldlood.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,18 +1,11 @@
-package demo_offline;
+package jimmy.onlyou.demo_offline;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
+import com.google.gson.Gson;
+import jimmy.onlyou.bean.Access_token;
 
 import javax.net.ssl.HttpsURLConnection;
-
-import org.junit.Test;
-
-import com.gist.bean.Access_token;
-import com.google.gson.Gson;
+import java.io.*;
+import java.net.URL;
 
 /**
  * @author 高远</n> 邮箱：wgyscsf@163.com</n> 博客 http://blog.csdn.net/wgyscsf</n>
@@ -31,7 +24,7 @@ public class Access_tokenDemo {
 	 * 该测试用例演示了如何获取access_token。
 	 * access_token是公众号的全局唯一票据，公众号调用各接口时都需使用access_token。
 	 */
-	@Test
+	//@Test
 	public void getAccess_token() throws IOException {
 		// 拼接api要求的httpsurl链接
 		String urlString = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="
@@ -79,7 +72,7 @@ public class Access_tokenDemo {
 	 * 取出时判断当前时间和存储里面的记录的时间的时间差，如果大于MAX_TIME,重新获取，并且将获取到的存储到file替换原来的内容
 	 * ，如果小于MAX_TIME，直接获取。
 	 */
-	@Test
+	//@Test
 	public void getSavedAccess_token() throws IOException {
 		Gson gson = new Gson();
 		String mAccess_token = null;// 需要获取的Access_token；

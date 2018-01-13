@@ -70,16 +70,20 @@ def spider():
 
     #print '正在使用豆瓣同城活动爬虫工具。'.encode('utf-8').decode('utf-8')
 
-    #destination = {'xian': '西安',  'beijing': '北京',
-    #               'shanghai': '上海', 'shenzhen': '深圳',
-    #               'wuhan': '武汉'}
+    destination = {
+        'xian': '西安',  'beijing': '北京',
+                    'shenzhen': '深圳',
+         #          'shanghai': '上海',
+                   'wuhan': '武汉',
+                    'chengdu': '成都'
+        }
 
     category = {'运动': 'sports', '旅行': 'travel',
                '公益': 'commonweal', '展览': 'exhibition',
                '音乐': 'music',
                '讲座': 'salon', '聚会': 'party',
                }
-    destination = {'shanghai': '上海'}
+    #destination = {'shanghai': '上海'}
 
 
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) \

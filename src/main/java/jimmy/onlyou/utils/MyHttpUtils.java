@@ -1,4 +1,4 @@
-package utils;
+package jimmy.onlyou.utils;
 
 import java.io.IOException;
 import java.io.InputStreamReader;

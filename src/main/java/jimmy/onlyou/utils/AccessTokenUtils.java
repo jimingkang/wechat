@@ -1,16 +1,11 @@
-package utils;
+package jimmy.onlyou.utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
+import com.google.gson.Gson;
+import jimmy.onlyou.bean.Access_token;
 
 import javax.net.ssl.HttpsURLConnection;
-
-import com.gist.bean.Access_token;
-import com.google.gson.Gson;
+import java.io.*;
+import java.net.URL;
 
 /**
  * @author 高远</n> 邮箱：wgyscsf@163.com</n> 博客 http://blog.csdn.net/wgyscsf</n>

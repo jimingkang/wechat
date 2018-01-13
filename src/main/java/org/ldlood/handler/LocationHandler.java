@@ -1,14 +1,13 @@
-package com.github.binarywang.demo.wechat.handler;
+package org.ldlood.handler;
 
-import com.github.binarywang.demo.wechat.builder.NewsBuilder;
-import com.github.binarywang.demo.wechat.hrs.HotelAvailThread;
+
 import com.hrs.apac.soap.client.HRSHotelAvailHotelOffer;
 import com.hrs.apac.soap.client.HRSHotelAvailResponse;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.ldlood.builder.NewsBuilder;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -20,8 +19,6 @@ import static me.chanjar.weixin.common.api.WxConsts.XmlMsgType;
  */
 @Component
 public class LocationHandler extends AbstractHandler {
-@Autowired
-  HotelAvailThread th;
 
 
   @Override

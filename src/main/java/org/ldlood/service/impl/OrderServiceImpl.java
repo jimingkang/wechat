@@ -1,5 +1,6 @@
 package org.ldlood.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.ldlood.converter.OrderMasterToOrderDTOConverter;
 import org.ldlood.dataobject.OrderDetail;
 import org.ldlood.dataobject.OrderMaster;
@@ -12,14 +13,13 @@ import org.ldlood.enums.ResultEnum;
 import org.ldlood.exception.SellException;
 import org.ldlood.repository.OrderDetailRepository;
 import org.ldlood.repository.OrderMasterRepository;
-import com.ldlood.service.*;
-import org.ldlood.utils.KeyUtil;
-import lombok.extern.slf4j.Slf4j;
 import org.ldlood.service.*;
+import org.ldlood.utils.KeyUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 public class OrderServiceImpl implements OrderService {
-
+    private Logger log = LoggerFactory.getLogger(getClass());
     @Autowired
     private ProductService productService;
 
@@ -50,9 +50,9 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private PayService payService;
 
-    @Autowired
+ /*   @Autowired
     private PushMessageService pushMessageService;
-
+*/
     @Autowired
     private WebSocket webSocket;
 
@@ -86,8 +86,8 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setOrderId(orderId);
         BeanUtils.copyProperties(orderDTO, orderMaster);
         orderMaster.setOrderId(orderId);
-        orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
-        orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
+        orderMaster.setOrderStatus(0);//OrderStatusEnum.NEW.getCode()
+        orderMaster.setPayStatus(0);//PayStatusEnum.WAIT.getCode()
         orderMaster.setOrderAmount(orderAmount);
         orderMasterRepository.save(orderMaster);
 
@@ -97,7 +97,7 @@ public class OrderServiceImpl implements OrderService {
         productService.decreaseStock(cartDTOList);
 
         // 发送websocket消息
-        webSocket.sendMessage(orderDTO.getOrderId());
+       webSocket.sendMessage(orderDTO.getOrderId());
         return orderDTO;
     }
 
@@ -197,7 +197,7 @@ public class OrderServiceImpl implements OrderService {
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
 
-        pushMessageService.orderStatus(orderDTO);
+        //pushMessageService.orderStatus(orderDTO);
         return orderDTO;
     }
 
@@ -206,19 +206,19 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO paid(OrderDTO orderDTO) {
 
 
-        if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
+        if (!orderDTO.getOrderStatus().equals(0)) {//OrderStatusEnum.NEW.getCode()
             log.error("【支付订单操作】 订单状态不正确 orderId={},orderStats={}", orderDTO.getOrderId(), orderDTO.getOrderStatus());
             throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
         }
 
 
-        if (!orderDTO.getPayStatus().equals(PayStatusEnum.WAIT.getCode())) {
+        if (!orderDTO.getPayStatus().equals(0)) {//PayStatusEnum.WAIT.getCode()
             log.error("【支付订单操作】 订单支付状态不正确 orderId={},orderStats={}", orderDTO.getOrderId(), orderDTO.getOrderStatus());
             throw new SellException(ResultEnum.ORDER_PAY_STATUS_ERROR);
         }
 
         //修改支付状态
-        orderDTO.setPayStatus(PayStatusEnum.SUCCESS.getCode());
+        orderDTO.setPayStatus(1);//PayStatusEnum.SUCCESS.getCode()
         OrderMaster orderMaster = new OrderMaster();
         BeanUtils.copyProperties(orderDTO, orderMaster);
 

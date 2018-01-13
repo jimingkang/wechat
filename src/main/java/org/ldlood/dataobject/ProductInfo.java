@@ -1,10 +1,10 @@
 package org.ldlood.dataobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.ldlood.enums.ProductStatusEnum;
-import org.ldlood.utils.EnumUtil;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
+import org.ldlood.enums.ProductStatusEnum;
+import org.ldlood.utils.EnumUtil;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

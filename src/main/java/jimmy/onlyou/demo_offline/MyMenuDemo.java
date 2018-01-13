@@ -1,11 +1,12 @@
-package demo_offline;
+package jimmy.onlyou.demo_offline;
 
-import bean.FatherButton;
-import bean.MatchRule;
-import bean.Menu;
-import bean.SonButton;
 import com.google.gson.Gson;
-import utils.AccessTokenUtils;
+import jimmy.onlyou.bean.FatherButton;
+import jimmy.onlyou.bean.MatchRule;
+import jimmy.onlyou.bean.Menu;
+import jimmy.onlyou.bean.SonButton;
+import jimmy.onlyou.utils.AccessTokenUtils;
+import org.junit.jupiter.api.Test;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
@@ -32,7 +33,7 @@ public class MyMenuDemo {
 	/*
 	 * 创建自定义菜单。
 	 */
-	//@Test
+	@Test
 	public void createCommMenu() {
 		String ACCESS_TOKEN = AccessTokenUtils.getAccessToken();// 获取AccessToken，AccessTokenUtils是封装好的类
 		// 拼接api要求的httpsurl链接
@@ -183,7 +184,7 @@ public class MyMenuDemo {
 
 	}
 
-	//@Test
+	@Test
 	public void createSpecialMenuJson() {
 
 		String ACCESS_TOKEN = AccessTokenUtils.getAccessToken();// 获取AccessToken

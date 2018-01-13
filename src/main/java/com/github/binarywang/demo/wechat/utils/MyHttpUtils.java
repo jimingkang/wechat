@@ -1,5 +1,6 @@
-package com.gist.utils;
+package com.github.binarywang.demo.wechat.utils;
 
+import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -7,8 +8,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-
-import javax.net.ssl.HttpsURLConnection;
 
 /**
  * @author 高远</n>

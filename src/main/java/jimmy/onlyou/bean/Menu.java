@@ -1,4 +1,4 @@
-package bean;
+package jimmy.onlyou.bean;
 
 import java.util.List;
 

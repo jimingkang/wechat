@@ -1,42 +1,43 @@
-package servlet;
+/*
+package jimmy.onlyou.servlet;
 
+import com.thoughtworks.xstream.XStream;
+import jimmy.onlyou.bean.Article;
+import jimmy.onlyou.bean.PicAndTextMsg;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
-
-
-import com.thoughtworks.xstream.XStream;
-
+*/
 /**
  * @author 高远</n> 邮箱：wgyscsf@163.com</n> 博客 http://blog.csdn.net/wgyscsf</n>
  *         编写时期 2016-4-3 下午4:34:05
- */
-@WebServlet("/CoreServlet")
+ *//*
+
+@RestController
+@RequestMapping("/CoreServlet")
 public class CoreServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String TAG = "CoreServlet";
 
-	/*
+	*/
+/*
 	 * 第二步：验证服务器地址的有效性 开发者提交信息后，微信服务器将发送GET请求到填写的服务器地址URL上，
 	 * GET请求携带四个参数：signature、timestamp、nonce、echostr
 	 * 开发者通过检验signature对请求进行校验（下面有校验方式）。 若确认此次GET请求来自微信服务器，请原样返回echostr参数内容，
@@ -44,12 +45,16 @@ public class CoreServlet extends HttpServlet {
 	 * 
 	 * 加密/校验流程如下： 1. 将token、timestamp、nonce三个参数进行字典序排序 2.
 	 * 将三个参数字符串拼接成一个字符串进行sha1加密 3. 开发者获得加密后的字符串可与signature对比，标识该请求来源于微信
-	 */
-	/*
+	 *//*
+
+	*/
+/*
 	 * 字典排序（lexicographical
 	 * order）是一种对于随机变量形成序列的排序方法。其方法是，按照字母顺序，或者数字小大顺序，由小到大的形成序列。
-	 */
+	 *//*
+
 	@Override
+	@GetMapping(produces = "text/plain;charset=utf-8")
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 
@@ -62,7 +67,7 @@ public class CoreServlet extends HttpServlet {
 
 		// 设置一个全局的token,开发者自己设置。api这样解释：Token可由开发者可以任意填写，
 		// 用作生成签名（该Token会和接口URL中包含的Token进行比对，从而验证安全性）
-		String token = "wgyscsf";
+		String token = "hrs";
 		// 根据api说明，获取上述四个参数
 		String signature = req.getParameter("signature");
 		String timestamp = req.getParameter("timestamp");
@@ -105,9 +110,11 @@ public class CoreServlet extends HttpServlet {
 		}
 		mParms = hexString.toString();// 加密结果
 
-		/*
+		*/
+/*
 		 * api要求： 若确认此次GET请求来自微信服务器，请原样返回echostr参数内容， 则接入生效， 成为开发者成功，否则接入失败。
-		 */
+		 *//*
+
 		// 第三步： 开发者获得加密后的字符串可与signature对比，标识该请求来源于微信接入成功。
 		// System.out.println(TAG + ":" + mParms + "---->" + signature);
 		if (mParms.equals(signature)) {
@@ -119,22 +126,29 @@ public class CoreServlet extends HttpServlet {
 		}
 	}
 
-	/*
+	*/
+/*
 	 * 查看api文档关于收发消息推送的消息格式基本一致。 如以下格式： <xml>
 	 * <ToUserName><![CDATA[toUser]]></ToUserName>
 	 * <FromUserName><![CDATA[fromUser]]></FromUserName>
 	 * <CreateTime>1348831860</CreateTime> <MsgType><![CDATA[text]]></MsgType>
 	 * <Content><![CDATA[this is a test]]></Content>
 	 * <MsgId>1234567890123456</MsgId> </xml> 那么，我们就可以进行统一处理。
-	 */
-	/*
+	 *//*
+
+	*/
+/*
 	 * 我们先获取输入流，看输入流里面的信息。通过测试打印输出流，我们可以看到每次用户请求，都会收到req请求，请求格式是xml格式，该信息在文档中有说明。
-	 */
-	/*
+	 *//*
+
+	*/
+/*
 	 * 特别注意，req.getInputStream()只能获取一次，并且只能读取一次。如果想要多次读取，需要另外想办法。为了简单起见，
 	 * 我们只获取一次req.getInputStream()，不再打印输出流信息。直接打印解析后的信息。
-	 */
+	 *//*
+
 	@Override
+	@PostMapping(produces = "application/xml; charset=UTF-8")
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		// 设置编码
@@ -142,9 +156,11 @@ public class CoreServlet extends HttpServlet {
 		resp.setContentType("html/text;charset=utf-8");
 		resp.setCharacterEncoding("utf-8");
 
-		/*
+		*/
+/*
 		 * 该部分我们获取用户发送的信息，并且解析成<K,V>的形式进行显示
-		 */
+		 *//*
+
 		// 解析用户发送过来的信息
 		InputStream is = req.getInputStream();// 拿取请求流
 		// 将解析结果存储在HashMap中
@@ -176,9 +192,11 @@ public class CoreServlet extends HttpServlet {
 		}
 		System.out.println(TAG + "：解析用户发送过来的信息结束");
 
-		/*
+		*/
+/*
 		 * 该部分我们尝试按照文档的要求格式给用户回复文本信息、图文消息。重点：按照文档要求构造需要的参数。特别注意：参数区分大小写。
-		 */
+		 *//*
+
 
 		// //实例1：发送普通文本消息,请查看文档关于“回复文本消息”的xml格式
 		//
@@ -228,3 +246,4 @@ public class CoreServlet extends HttpServlet {
 		printWriter.print(picAndTextMsg2Xml);
 	}
 }
+*/

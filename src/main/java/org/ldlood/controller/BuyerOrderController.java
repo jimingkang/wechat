@@ -1,5 +1,6 @@
 package org.ldlood.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.ldlood.VO.ResultVO;
 import org.ldlood.converter.OrderFormToOrderDTOConverter;
 import org.ldlood.dto.OrderDTO;
@@ -9,7 +10,6 @@ import org.ldlood.form.OrderForm;
 import org.ldlood.service.BuyerService;
 import org.ldlood.service.OrderService;
 import org.ldlood.utils.ResultVOUtil;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

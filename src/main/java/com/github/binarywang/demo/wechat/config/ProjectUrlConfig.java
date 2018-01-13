@@ -1,4 +1,4 @@
-package com.ldlood.config;
+package com.github.binarywang.demo.wechat.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

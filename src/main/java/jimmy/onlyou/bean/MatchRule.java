@@ -1,4 +1,4 @@
-package bean;
+package jimmy.onlyou.bean;
 
 /**
  * @author 高远</n> 邮箱：wgyscsf@163.com</n> 博客 http://blog.csdn.net/wgyscsf</n>

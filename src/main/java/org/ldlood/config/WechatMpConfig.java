@@ -1,22 +1,21 @@
+/*
 package org.ldlood.config;
 
-import me.chanjar.weixin.mp.api.WxMpConfigStorage;
-import me.chanjar.weixin.mp.api.WxMpInMemoryConfigStorage;
-import me.chanjar.weixin.mp.api.WxMpService;
-import me.chanjar.weixin.mp.api.impl.WxMpServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+*/
 /**
  * Created by Ldlood on 2017/7/23.
- */
+ *//*
+
 @Component
 public class WechatMpConfig {
     @Autowired
     private WechatAccountConfig wechatAccountConfig;
 
-    @Bean
+    */
+/*@Bean
     public WxMpService wxMpService() {
         WxMpService wxMpService = new WxMpServiceImpl();
         wxMpService.setWxMpConfigStorage(wxMpConfigStorage());
@@ -29,5 +28,7 @@ public class WechatMpConfig {
         wxMpInMemoryConfigStorage.setAppId(wechatAccountConfig.getMpAppId());
         wxMpInMemoryConfigStorage.setSecret(wechatAccountConfig.getMpAppSecret());
         return wxMpInMemoryConfigStorage;
-    }
+    }*//*
+
 }
+*/

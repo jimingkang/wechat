@@ -1,12 +1,12 @@
 package org.ldlood.controller;
 
+import org.apache.commons.lang3.StringUtils;
 import org.ldlood.dataobject.ProductCategory;
 import org.ldlood.dataobject.ProductInfo;
 import org.ldlood.form.ProductForm;
 import org.ldlood.service.CategoryService;
 import org.ldlood.service.ProductService;
 import org.ldlood.utils.KeyUtil;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -14,7 +14,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -61,10 +64,10 @@ public class SellerProductController {
             productService.onSale(productId);
         } catch (Exception ex) {
             map.put("msg", ex.getMessage());
-            map.put("url", "/seller/product/list");
+            map.put("url", "/sell/seller/product/list");
             return new ModelAndView("common/error", map);
         }
-        map.put("url", "/seller/product/list");
+        map.put("url", "/sell/seller/product/list");
         return new ModelAndView("common/success", map);
     }
 
@@ -75,10 +78,10 @@ public class SellerProductController {
             productService.offSale(productId);
         } catch (Exception ex) {
             map.put("msg", ex.getMessage());
-            map.put("url", "/seller/product/list");
+            map.put("url", "/sell/seller/product/list");
             return new ModelAndView("common/error", map);
         }
-        map.put("url", "/seller/product/list");
+        map.put("url", "/sell/seller/product/list");
         return new ModelAndView("common/success", map);
     }
 
@@ -103,7 +106,7 @@ public class SellerProductController {
 
         if (bindingResult.hasErrors()) {
             map.put("msg", bindingResult.getFieldError().getDefaultMessage());
-            map.put("url", "/seller/product/index");
+            map.put("url", "/sell/seller/product/index");
             return new ModelAndView("common/error", map);
         }
 
@@ -123,11 +126,11 @@ public class SellerProductController {
 
         } catch (Exception ex) {
             map.put("msg", ex.getMessage());
-            map.put("url", "/seller/product/index");
+            map.put("url", "/sell/seller/product/index");
             return new ModelAndView("common/error", map);
         }
 
-        map.put("url", "/seller/product/list");
+        map.put("url", "/sell/seller/product/list");
         return new ModelAndView("common/success", map);
 
     }

@@ -2,12 +2,14 @@ package org.ldlood.converter;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import lombok.extern.slf4j.Slf4j;
 import org.ldlood.dataobject.OrderDetail;
 import org.ldlood.dto.OrderDTO;
 import org.ldlood.enums.ResultEnum;
 import org.ldlood.exception.SellException;
 import org.ldlood.form.OrderForm;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ import java.util.List;
  */
 @Slf4j
 public class OrderFormToOrderDTOConverter {
+    private static Logger log = LoggerFactory.getLogger(OrderFormToOrderDTOConverter.class);
     public static OrderDTO convert(OrderForm orderForm) {
         Gson gson = new Gson();
         OrderDTO orderDTO = new OrderDTO();

@@ -1,16 +1,16 @@
-package servlet;
+package jimmy.onlyou.servlet;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.URLEncoder;
+import jimmy.onlyou.utils.GlobalParams;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.gist.utils.GlobalParams;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 /**
  * @author 高远</n>
@@ -19,7 +19,8 @@ import com.gist.utils.GlobalParams;
  * 博客  http://blog.csdn.net/wgyscsf</n>
  * TODO</n>
  */
-@WebServlet("/GuideServlet")
+@RestController
+@RequestMapping("/GuideServlet")
 public class GuideServlet extends HttpServlet {
 
 	@Override
@@ -37,7 +38,7 @@ public class GuideServlet extends HttpServlet {
 		 */
 		String redirect_uri = "http://42.96.144.28/WeixinApiDemo/WeixinWebServlet";// 目标访问地址
 		redirect_uri = URLEncoder.encode(
-				"http://42.96.144.28/WeixinApiDemo/WeixinWebServlet", "UTF-8");// 授权后重定向的回调链接地址，请使用urlencode对链接进行处理（文档要求）
+				"http://1m929o4661.imwork.net/WeixinWebServlet", "UTF-8");// 授权后重定向的回调链接地址，请使用urlencode对链接进行处理（文档要求）
 		// 按照文档要求拼接访问地址
 		String url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="
 				+ GlobalParams.APPID

@@ -16,9 +16,9 @@ module.exports = {
 		productionGzip: false,
 		productionGzipExtensions: ['js', 'css'],
 		port: 8080,
-		openidUrl: 'http://onlyoucd.free.ngrok.cc',
-		sellUrl: 'http://onlyoucd.free.ngrok.cc/wechat/authorize',
-        	wechatPayUrl: 'http://www.cnblog.xin/pay'
+		sellUrl: 'http://onlyoucd.free.ngrok.cc/sell',
+		openidUrl: 'http://onlyoucd.free.ngrok.cc/sell/wechat/authorize',
+        	wechatPayUrl: 'http://onlyoucd.free.ngrok.cc/sell/pay/create'
 	},
 	dev: {
 		env: require('./dev.env'),
@@ -32,8 +32,8 @@ module.exports = {
 		// In our experience, they generally work as expected,
 		// just be aware of this issue when enabling this option.
 		cssSourceMap: false,
-		sellUrl: 'http://onlyoucd.free.ngrok.cc/wechat/authorize',
-		openidUrl: 'http://127.0.0.1',
-		wechatPayUrl: 'http://127.0.0.1'
+		sellUrl: 'http://onlyoucd.free.ngrok.cc/sell',
+		openidUrl: 'http://onlyoucd.free.ngrok.cc/sell/wechat/authorize',
+		wechatPayUrl: 'http://onlyoucd.free.ngrok.cc/sell/pay/create'
 	}
 }

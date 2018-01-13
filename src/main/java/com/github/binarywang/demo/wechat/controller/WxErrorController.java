@@ -107,7 +107,7 @@ public class WxErrorController implements ErrorController {
   @SuppressWarnings("static-method")
   private HttpStatus getStatus(HttpServletRequest request) {
     Integer statusCode = (Integer) request
-        .getAttribute("javax.servlet.error.status_code");
+        .getAttribute("javax.jimmy.onlyou.servlet.error.status_code");
     if (statusCode != null) {
       return HttpStatus.valueOf(statusCode);
     }

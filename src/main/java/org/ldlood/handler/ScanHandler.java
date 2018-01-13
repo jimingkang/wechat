@@ -1,4 +1,4 @@
-package com.github.binarywang.demo.wechat.handler;
+package org.ldlood.handler;
 
 /**
  * @author Binary Wang(https://github.com/binarywang)

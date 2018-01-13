@@ -1,4 +1,4 @@
-package com.github.binarywang.demo.wechat.handler;
+package org.ldlood.handler;
 
 import me.chanjar.weixin.mp.api.WxMpMessageHandler;
 import org.slf4j.Logger;

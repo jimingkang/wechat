@@ -1,14 +1,13 @@
 package org.ldlood.dataobject;
 
-import org.ldlood.enums.PayStatusEnum;
-import org.ldlood.enums.OrderStatusEnum;
 import lombok.Data;
+import org.ldlood.enums.OrderStatusEnum;
+import org.ldlood.enums.PayStatusEnum;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
-
 
 
 /**

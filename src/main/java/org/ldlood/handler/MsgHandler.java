@@ -1,6 +1,5 @@
-package com.github.binarywang.demo.wechat.handler;
+package org.ldlood.handler;
 
-import com.github.binarywang.demo.wechat.builder.TextBuilder;
 import com.github.binarywang.demo.wechat.utils.JsonUtils;
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.common.session.WxSessionManager;
@@ -8,6 +7,7 @@ import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
 import org.apache.commons.lang3.StringUtils;
+import org.ldlood.builder.TextBuilder;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;

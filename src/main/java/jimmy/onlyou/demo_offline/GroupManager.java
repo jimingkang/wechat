@@ -1,14 +1,12 @@
-package demo_offline;
+package jimmy.onlyou.demo_offline;
+
+import com.google.gson.Gson;
+import jimmy.onlyou.bean.Group;
+import jimmy.onlyou.bean.GroupUnit;
+import jimmy.onlyou.utils.AccessTokenUtils;
+import jimmy.onlyou.utils.MyHttpUtils;
 
 import java.util.List;
-
-import org.junit.Test;
-
-import com.gist.bean.Group;
-import com.gist.bean.GroupUnit;
-import com.gist.utils.AccessTokenUtils;
-import com.gist.utils.MyHttpUtils;
-import com.google.gson.Gson;
 
 /**
  * @author 高远</n> 编写日期 2016-4-17下午12:31:32</n> 邮箱 wgyscsf@163.com</n> 博客
@@ -23,7 +21,7 @@ public class GroupManager {
 	/*
 	 * 测试创建分组
 	 */
-	@Test
+	//@Test
 	public void createGroup() {
 		String ACCESS_TOKEN = AccessTokenUtils.getSavedAccess_token();// 获取我们保存且实时更新的ACCESS_TOKEN，实现原理参看第三篇文章
 		String url = "https://api.weixin.qq.com/cgi-bin/groups/create?access_token="
@@ -45,7 +43,7 @@ public class GroupManager {
 	/*
 	 * 测试查询所有分组
 	 */
-	@Test
+	//@Test
 	public void showAllGroup() {
 		String ACCESS_TOKEN = AccessTokenUtils.getSavedAccess_token();// 获取我们保存且实时更新的ACCESS_TOKEN，实现原理参看第三篇文章
 		String url = "https://api.weixin.qq.com/cgi-bin/groups/get?access_token="

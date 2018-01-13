@@ -1,11 +1,13 @@
 package org.ldlood.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.ldlood.dto.OrderDTO;
 import org.ldlood.enums.ResultEnum;
 import org.ldlood.exception.SellException;
 import org.ldlood.service.BuyerService;
 import org.ldlood.service.OrderService;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class BuyerServiceImpl implements BuyerService {
-
+    private  Logger log = LoggerFactory.getLogger(getClass());
     @Autowired
     private OrderService orderService;
 

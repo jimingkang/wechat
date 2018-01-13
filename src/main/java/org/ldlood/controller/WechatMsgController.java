@@ -1,4 +1,4 @@
-package com.github.binarywang.demo.wechat.controller;
+package org.ldlood.controller;
 
 import me.chanjar.weixin.mp.api.WxMpMessageRouter;
 import me.chanjar.weixin.mp.api.WxMpService;

@@ -1,4 +1,4 @@
-package com.github.binarywang.demo.wechat.builder;
+package org.ldlood.builder;
 
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;

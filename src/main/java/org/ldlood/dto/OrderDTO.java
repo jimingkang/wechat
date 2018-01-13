@@ -2,12 +2,12 @@ package org.ldlood.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Data;
 import org.ldlood.dataobject.OrderDetail;
 import org.ldlood.enums.OrderStatusEnum;
 import org.ldlood.enums.PayStatusEnum;
 import org.ldlood.utils.EnumUtil;
 import org.ldlood.utils.serializer.Date2LongSerializer;
-import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;

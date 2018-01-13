@@ -1,10 +1,10 @@
 package org.ldlood.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.ldlood.dto.OrderDTO;
 import org.ldlood.enums.ResultEnum;
 import org.ldlood.exception.SellException;
 import org.ldlood.service.OrderService;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,12 +62,12 @@ public class SellerOrderController {
 
             log.error("【后台取消订单】 查询不到订单");
             map.put("msg", ex.getMessage());
-            map.put("url", "/seller/order/list");
+            map.put("url", "/sell/seller/order/list");
             return new ModelAndView("common/error", map);
         }
 
         map.put("msg", ResultEnum.ORDER_CANCEL_SUCCESS.getMessage());
-        map.put("url", "/seller/order/list");
+        map.put("url", "/sell/seller/order/list");
         return new ModelAndView("common/success");
     }
 
@@ -110,12 +110,12 @@ public class SellerOrderController {
         } catch (SellException e) {
             log.error("【卖家端完结订单】发生异常{}", e);
             map.put("msg", e.getMessage());
-            map.put("url", "/seller/order/list");
+            map.put("url", "/sell/seller/order/list");
             return new ModelAndView("common/error", map);
         }
 
         map.put("msg", ResultEnum.ORDER_FINISH_SUCCESS.getMessage());
-        map.put("url", "/seller/order/list");
+        map.put("url", "/sell/seller/order/list");
         return new ModelAndView("common/success");
     }
 }

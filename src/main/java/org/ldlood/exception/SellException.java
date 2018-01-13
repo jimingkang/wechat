@@ -1,7 +1,7 @@
 package org.ldlood.exception;
 
-import org.ldlood.enums.ResultEnum;
 import lombok.Getter;
+import org.ldlood.enums.ResultEnum;
 
 /**
  * Created by Ldlood on 2017/7/22.
